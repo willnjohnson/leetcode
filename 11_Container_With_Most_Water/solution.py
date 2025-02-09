@@ -2,14 +2,16 @@
 O(N^2) technique:
 
 While this solution works, it's not the BEST solution,
-because we end up checking repeated elements in the list
+because we end up checking repeated elements in the list,
+and end up using abs() function which is an overhead
 
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         maximum = 0
+        nelements = len(height)
 
-        for i in range(len(height)):
-            for j in range(len(height)):
+        for i in range(nelements):
+            for j in range(nelements):
                 if height[i] < height[j]:
                     t = height[i]*abs(j-i)
                     if maximum < t:
